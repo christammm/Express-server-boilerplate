@@ -22,9 +22,9 @@ app.use((req,res, next) => {
   next();//if middleware doesnt use next,.... this is necessary when using middleware
 });
 
-app.use((req,res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req,res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 //set up public folder for html
 app.use(express.static(__dirname + '/public')); //dirname stores path to folder directory
@@ -46,6 +46,12 @@ app.get('/', (req, resp) => {
   });
 });
 
+app.get('/portfolio', (req, resp) => {
+  resp.render('portfolio.hbs', {
+    pageTitle: 'Portfolio Page',
+    welcomeMessage: 'This is my new Portfolio page!',
+  });
+});
 
 
 
