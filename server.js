@@ -1,8 +1,10 @@
 const express = require('express');
 const hbs = require('hbs');
-var app = express();
 const fs = require('fs');
 
+//store port for Heroku.
+const port =  process.env.PORT || 3000;
+var app = express();
 
 
 //set Partials for directory
@@ -67,7 +69,7 @@ app.get('/*', (req, res) => {
     });
 });
 
-app.listen(3000,() => {
-  console.log('app is running on port 3000');
+app.listen(port,() => {
+  console.log(`app is running on port ${port}`);
 });
 //listen for port 3000, locally for now.
